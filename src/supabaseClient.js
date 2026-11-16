@@ -23,11 +23,14 @@ export async function comprobarConexion() {
   }
 
   console.log('%cConexión correcta', 'color: #16a34a; font-weight: bold; font-size: 14px')
-  console.log('Datos de la conexión:', {
+  // Datos de la conexión en forma de tabla para que se lean sin desplegar nada
+  console.log('Datos de la conexión:')
+  console.table({
     url: supabaseUrl,
     clave: supabaseKey.slice(0, 16) + '…',
     tabla: 'clients',
     registros: count,
   })
-  console.table(data)
+  console.log('Registros de la tabla clients:')
+  console.table(data, ['nombre', 'empresa', 'email'])
 }
